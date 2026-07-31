@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>إنشاء حساب | شجرة عفرين</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f3f6f3;
+      color: #1f2937;
+    }
+
+    header {
+      background: #174d2a;
+      color: white;
+      padding: 18px 20px;
+    }
+
+    .header-container {
+      max-width: 1050px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .back-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      padding: 35px 20px;
+    }
+
+    .register-card {
+      width: 100%;
+      max-width: 520px;
+      background: white;
+      border-radius: 18px;
+      padding: 32px 25px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.11);
+    }
+
+    .register-card h1 {
+      margin: 0 0 10px;
+      text-align: center;
+      color: #174d2a;
+      font-size: 34px;
+    }
+
+    .intro {
+      margin: 0 0 28px;
+      text-align: center;
+      color: #6b7280;
+      line-height: 1.8;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #174d2a;
+      box-shadow: 0 0 0 3px rgba(23, 77, 42, 0.12);
+    }
+
+    .password-note {
+      margin: 7px 0 0;
+      color: #6b7280;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 22px 0;
+      line-height: 1.7;
+    }
+
+    .terms input {
+      width: auto;
+      margin-top: 5px;
+    }
+
+    .terms a {
+      color: #174d2a;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .register-button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background: #174d2a;
+      color: white;
+      padding: 15px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .register-button:hover {
+      background: #226739;
+    }
+
+    .login-link {
+      margin-top: 22px;
+      text-align: center;
+    }
+
+    .login-link a {
+      color: #174d2a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 10px;
+      line-height: 1.7;
+    }
+
+    .message.error {
+      display: block;
+      background: #fee2e2;
+      color: #991b1b;
+      border-right: 5px solid #dc2626;
+    }
+
+    .message.success {
+      display: block;
+      background: #dcfce7;
+      color: #166534;
+      border-right: 5px solid #16a34a;
+    }
+
+    .notice {
+      margin-top: 25px;
+      padding: 15px;
+      border-right: 5px solid #d4a72c;
+      background: #fff9e8;
+      border-radius: 10px;
+      color: #5f5128;
+      line-height: 1.7;
+    }
+
+    footer {
+      background: #123c21;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .header-container {
+        align-items: flex-start;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .register-card h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+
+      <a class="logo" href="../index.html">
+        🌳 شجرة عفرين
+      </a>
+
+      <a class="back-link" href="login.html">
+        العودة إلى تسجيل الدخول
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="register-card">
+
+      <h1>إنشاء حساب جديد</h1>
+
+      <p class="intro">
+        أنشئ حسابًا للمساهمة في حفظ أنساب عائلات عفرين
+        وتاريخ القرى والصور القديمة.
+      </p>
+
+      <form id="registerForm">
+
+        <div class="form-group">
+          <label for="fullName">الاسم الكامل</label>
+
+          <input
+            id="fullName"
+            name="fullName"
+            type="text"
+            placeholder="اكتب اسمك الكامل"
+            autocomplete="name"
+            minlength="3"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني</label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="example@email.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password">كلمة المرور</label>
+
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="أنشئ كلمة مرور"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          >
+
+          <p class="password-note">
+            يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">تأكيد كلمة المرور</label>
+
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            placeholder="أعد كتابة كلمة المرور"
+            autocomplete="new-password"
+            minlength="8"
+            required
+          >
+        </div>
+
+        <label class="terms">
+          <input id="acceptTerms" type="checkbox" required>
+
+          <span>
+            أوافق على
+            <a href="#">شروط الاستخدام</a>
+            و
+            <a href="#">سياسة الخصوصية</a>.
+          </span>
+        </label>
+
+        <button class="register-button" type="submit">
+          إنشاء الحساب
+        </button>
+
+      </form>
+
+      <div id="formMessage" class="message"></div>
+
+      <div class="login-link">
+        لديك حساب بالفعل؟
+        <a href="login.html">تسجيل الدخول</a>
+      </div>
+
+      <div class="notice">
+        إنشاء الحساب الحقيقي سيُفعّل في المرحلة التالية
+        عند ربط الموقع بخدمة Supabase.
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    شجرة عفرين — أرشيف عائلي وتاريخي رقمي
+  </footer>
+
+  <script>
+    const registerForm = document.getElementById("registerForm");
+    const formMessage = document.getElementById("formMessage");
+
+    registerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const fullName = document
+        .getElementById("fullName")
+        .value
+        .trim();
+
+      const password = document.getElementById("password").value;
+
+      const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+      formMessage.className = "message";
+      formMessage.textContent = "";
+
+      if (fullName.length < 3) {
+        showMessage(
+          "يرجى كتابة الاسم الكامل بشكل صحيح.",
+          "error"
+        );
+        return;
+      }
+
+      if (password.length < 8) {
+        showMessage(
+          "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.",
+          "error"
+        );
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showMessage(
+          "كلمتا المرور غير متطابقتين.",
+          "error"
+        );
+        return;
+      }
+
+      showMessage(
+        "صفحة إنشاء الحساب جاهزة. سنفعّل التسجيل الحقيقي بعد ربط Supabase.",
+        "success"
+      );
+    });
+
+    function showMessage(text, type) {
+      formMessage.textContent = text;
+      formMessage.className = "message " + type;
+    }
+  </script>
+
+</body>
+</html>
